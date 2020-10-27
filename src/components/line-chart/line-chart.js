@@ -21,11 +21,11 @@ const lineChart = (props) => {
         .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     const xScale = d3.scaleTime()
-        .domain(d3.extent(data, xAccessor))
+        .domain(d3.extent(data.dates))
         .range([0, width]);
 
     const yScale = d3.scaleLinear()
-        .domain([0, d3.max(data, yAccessor)])
+        .domain([0, data.yMax])
         .range([height, 0]);
 
     const xAxisGroup = bounds.append('g')
@@ -42,11 +42,14 @@ const lineChart = (props) => {
         .x(d => xScale(xAccessor(d)))
         .y(d => yScale(yAccessor(d)));
 
-    bounds.append('path')
-        .attr('d', lineGenerator(data))
-        .attr('fill', 'none')
-        .attr('stroke', 'steelblue')
-        .attr('stroke-width', 2);
+    bounds.selectAll('.line-series')
+        .data(data.series)
+        .enter()
+        .append('path')
+        .attr('class', d => `line-series ${d.name.toLowerCase()}`)
+        .attr('d', d => lineGenerator(d.values))
+        .style('fill', 'none')
+        .style('stroke', 'steelblue');
 }
 
 export default lineChart;
