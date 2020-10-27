@@ -23,9 +23,11 @@ const main = async () => {
 
     const data = {
         series: series,
-        dates: response.results[0].series[0].values.map(d => xAccessor(d)),
-        yMax: yMax
+        dates: response.results[0].series[0].values.map(d => xAccessor(d))
     }
+
+    const seriesNameAccessor = d => d.name;
+    const seriesValuesAccessor = d => d.values;
 
     console.log('data', data);
 
@@ -34,8 +36,11 @@ const main = async () => {
         width: 1200,
         height: 600,
         data: data,
+        seriesNameAccessor: seriesNameAccessor,
+        seriesValuesAccessor: seriesValuesAccessor,
         xAccessor: xAccessor,
-        yAccessor: yAccessor
+        yAccessor: yAccessor,
+        yMax: yMax
     }
 
     lineChart(props);

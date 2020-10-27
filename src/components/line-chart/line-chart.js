@@ -5,8 +5,11 @@ const lineChart = (props) => {
         width: svgWidth,
         height: svgHeight,
         data,
+        seriesNameAccessor = d => d.name,
+        seriesValuesAccessor = d => d.values,
         xAccessor = d => d.date,
-        yAccessor = d => d.count
+        yAccessor = d => d.count,
+        yMax
     } = props;
 
     const margin = { top: 30, right: 10, bottom: 50, left: 50 };
@@ -25,7 +28,7 @@ const lineChart = (props) => {
         .range([0, width]);
 
     const yScale = d3.scaleLinear()
-        .domain([0, data.yMax])
+        .domain([0, yMax])
         .range([height, 0]);
 
     const xAxisGroup = bounds.append('g')
@@ -46,8 +49,8 @@ const lineChart = (props) => {
         .data(data.series)
         .enter()
         .append('path')
-        .attr('class', d => `line-series ${d.name.toLowerCase()}`)
-        .attr('d', d => lineGenerator(d.values))
+        .attr('class', d => `line-series ${seriesNameAccessor(d).toLowerCase()}`)
+        .attr('d', d => lineGenerator(seriesValuesAccessor(d)))
         .style('fill', 'none')
         .style('stroke', 'steelblue');
 }
