@@ -1,0 +1,117 @@
+{
+    "results": [
+      {
+        "statement_id": 0,
+        "series": [
+          {
+            "name": "influxdb_write",
+            "tags": {
+              "cluster": "platform-ttc1",
+              "environment": "vmaas",
+              "host": "ifxlx1041",
+              "region": "",
+              "team": "platform-cluster"
+            },
+            "columns": [
+              "time",
+              "non_negative_derivative"
+            ],
+            "values": [
+              [
+                "2019-09-19T02:12:00Z",
+                16097.022222201029
+              ],
+              [
+                "2019-09-19T02:12:30Z",
+                24190.533333333333
+              ],
+              [
+                "2019-09-19T02:13:00Z",
+                24251.6
+              ],
+              [
+                "2019-09-19T02:13:30Z",
+                24162.3
+              ],
+              [
+                "2019-09-19T02:14:00Z",
+                24249.833333333332
+              ]
+            ]
+          },
+          {
+            "name": "influxdb_write",
+            "tags": {
+              "cluster": "platform-ttc1",
+              "environment": "vmaas",
+              "host": "ifxlx1047",
+              "region": "",
+              "team": "platform-cluster"
+            },
+            "columns": [
+              "time",
+              "non_negative_derivative"
+            ],
+            "values": [
+              [
+                "2019-09-19T02:12:00Z",
+                16171.644444465637
+              ],
+              [
+                "2019-09-19T02:12:30Z",
+                24134.166666666668
+              ],
+              [
+                "2019-09-19T02:13:00Z",
+                24214.833333333332
+              ],
+              [
+                "2019-09-19T02:13:30Z",
+                24132.155555534362
+              ],
+              [
+                "2019-09-19T02:14:00Z",
+                24254.844444465638
+              ]
+            ]
+          },
+          {
+            "name": "influxdb_write",
+            "tags": {
+              "cluster": "platform-ttc1",
+              "environment": "vmaas",
+              "host": "ifxlx1050",
+              "region": "",
+              "team": "platform-cluster"
+            },
+            "columns": [
+              "time",
+              "non_negative_derivative"
+            ],
+            "values": [
+              [
+                "2019-09-19T02:12:00Z",
+                16046.17777779897
+              ],
+              [
+                "2019-09-19T02:12:30Z",
+                24379.32222220103
+              ],
+              [
+                "2019-09-19T02:13:00Z",
+                24161.866666666665
+              ],
+              [
+                "2019-09-19T02:13:30Z",
+                24293.255555534364
+              ],
+              [
+                "2019-09-19T02:14:00Z",
+                24319.344444465638
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
