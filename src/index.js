@@ -36,4 +36,4 @@ const main = async () => {
     lineChart(props);
 };
 
-main()
+main();

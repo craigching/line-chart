@@ -54,6 +54,6 @@ const lineChart = (props) => {
         .attr('d', d => lineGenerator(seriesValuesAccessor(d)))
         .style('fill', 'none')
         .style('stroke', 'steelblue');
-}
+};
 
 export default lineChart;
