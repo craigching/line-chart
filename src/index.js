@@ -10,32 +10,22 @@ const main = async () => {
     const yAccessor = d => d[1];
 
     let yMax = 0;
-    const series = response.results[0].series.map(series => {
+    response.results[0].series.forEach(series => {
         const max = d3.max(series.values.map(d => yAccessor(d)));
         if (max > yMax) {
             yMax = max;
         }
-        return {
-            name: series.tags.host,
-            values: series.values
-        }
     });
 
-    const data = {
-        series: series,
-        dates: response.results[0].series[0].values.map(d => xAccessor(d))
-    }
-
-    const seriesNameAccessor = d => d.name;
+    const seriesNameAccessor = d => d.tags.host;
     const seriesValuesAccessor = d => d.values;
-
-    console.log('data', data);
 
     const props = {
         container: container.nodes()[0],
         width: 1200,
         height: 600,
-        data: data,
+        series: response.results[0].series,
+        dates: response.results[0].series[0].values.map(xAccessor),
         seriesNameAccessor: seriesNameAccessor,
         seriesValuesAccessor: seriesValuesAccessor,
         xAccessor: xAccessor,

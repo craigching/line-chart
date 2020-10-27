@@ -4,7 +4,8 @@ const lineChart = (props) => {
         container,
         width: svgWidth,
         height: svgHeight,
-        data,
+        series,
+        dates,
         seriesNameAccessor = d => d.name,
         seriesValuesAccessor = d => d.values,
         xAccessor = d => d.date,
@@ -24,7 +25,7 @@ const lineChart = (props) => {
         .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     const xScale = d3.scaleTime()
-        .domain(d3.extent(data.dates))
+        .domain(d3.extent(dates))
         .range([0, width]);
 
     const yScale = d3.scaleLinear()
@@ -46,7 +47,7 @@ const lineChart = (props) => {
         .y(d => yScale(yAccessor(d)));
 
     bounds.selectAll('.line-series')
-        .data(data.series)
+        .data(series)
         .enter()
         .append('path')
         .attr('class', d => `line-series ${seriesNameAccessor(d).toLowerCase()}`)
